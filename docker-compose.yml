@@ -15,9 +15,9 @@ services:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/var/www/myapp
-      - ./vendor/bundle:/var/www/myapp/vendor/bundle
-      - ./node-modules:/var/www/myapp/node_modules
+      - .:/var/www/web
+      - ./vendor/bundle:/var/www/web/vendor/bundle
+      - ./node_modules:/var/www/web/node_modules
     ports:
       - "3000:3000"
     depends_on:
