@@ -11,12 +11,14 @@ RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
     apt-get update && apt-get install -y yarn
 
 RUN apt-get update -qq && apt-get install -y nodejs yarn
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+
+RUN mkdir -p /var/www/web/myapp
+WORKDIR /var/www/web/myapp
+
+COPY Gemfile /var/www/web/myapp/Gemfile
+COPY Gemfile.lock /var/www/web/myapp/Gemfile.lock
 RUN bundle install
-COPY . /myapp
+COPY . /var/www/web/myapp
 
 RUN yarn install --check-files
 RUN bundle exec rails webpacker:compile
