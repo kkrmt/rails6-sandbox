@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # env
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
@@ -58,3 +60,6 @@ gem 'annotate'
 # active admin
 gem 'activeadmin'
 gem 'devise'
+
+# JWT利用の認証
+gem 'knock'
